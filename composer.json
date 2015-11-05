@@ -1,0 +1,21 @@
+{
+    "name": "darkaonline/ripcord",
+    "description": "RPC client and server around PHP's xmlrpc library",
+    "keywords": ["RPC", "XML", "XMLRPC"],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ripcord\\": "src/Ripcord"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Darius Matulionis",
+            "email": "darius@matulionis.lt"
+        }
+    ],
+    "minimum-stability": "dev"
+}
