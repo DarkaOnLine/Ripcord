@@ -44,7 +44,7 @@ class Ripcord
     {
         $this->url = isset($config['url']) ? $config['url'] : config('ripcord.url');
         $this->db = isset($config['db']) ? $config['db'] : config('ripcord.db');
-        $this->user = isset($config['user']) ? $config['user'] : config('ripcord.user');
+        $this->username = isset($config['user']) ? $config['user'] : config('ripcord.user');
         $this->password = isset($config['password']) ? $config['password'] : config('ripcord.password');
 
         $this->connect();
