@@ -2,10 +2,10 @@
 
 namespace Ripcord\Providers\Laravel;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Ripcord\Providers\Laravel\Console\PublishCommand;
 
-class ServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -28,7 +28,7 @@ class ServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        $configPath = __DIR__ . 'config/'.$this->service_name.'.php';
+        $configPath = __DIR__ . '/config/'.$this->service_name.'.php';
         $this->publishes([
             $configPath => config_path($this->service_name.'.php')
         ], 'config');
@@ -41,20 +41,6 @@ class ServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $service_name = $this->service_name;
-
-        $this->app->singleton(Ripcord::class, function($app) use ($service_name)
-        {
-            $config = $app['config'][$service_name];
-
-            return new Ripcord(
-                $config['url'],
-                $config['db'],
-                $config['user'],
-                $config['password']
-            );
-        });
-
         $this->app['command.ripcord.publish'] = $this->app->share(
             function () {
                 return new PublishCommand();

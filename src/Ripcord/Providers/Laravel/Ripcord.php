@@ -38,17 +38,14 @@ class Ripcord
     /**
      * Ripcord constructor.
      *
-     * @param $url string
-     * @param $db string
-     * @param $user string
-     * @param $password string
+     * @param $config array
      */
-    public function __construct($url, $db, $user, $password)
+    public function __construct($config = [])
     {
-        $this->url = $url;
-        $this->db = $db;
-        $this->user = $user;
-        $this->password = $password;
+        $this->url = isset($config['url']) ? $config['url'] : config('ripcord.url');
+        $this->db = isset($config['db']) ? $config['db'] : config('ripcord.db');
+        $this->user = isset($config['user']) ? $config['user'] : config('ripcord.user');
+        $this->password = isset($config['password']) ? $config['password'] : config('ripcord.password');
 
         $this->connect();
     }
