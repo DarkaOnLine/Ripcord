@@ -51,12 +51,12 @@ class Ripcord
     }
 
     /**
-     * Create connection
+     * Create connection.
      */
     public function connect()
     {
         $common = RipcordBase::client("$this->url/common");
-        $this->uid = $common->authenticate($this->db, $this->username, $this->password, array());
+        $this->uid = $common->authenticate($this->db, $this->username, $this->password, []);
         $this->client = RipcordBase::client("$this->url/object");
     }
 }
