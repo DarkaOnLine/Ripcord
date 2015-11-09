@@ -77,7 +77,7 @@ class Curl implements Transport
                 );
             } else {
                 $exception = new TransportException(
-                    'Could not access '.$url .' ( original CURL error: '.$errorMessage.' ) ',
+                    'Could not access '.$url.' ( original CURL error: '.$errorMessage.' ) ',
                     Ripcord::CANNOT_ACCESS_URL
                 );
             }

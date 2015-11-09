@@ -29,5 +29,4 @@ return [
     */
     'password' => env('RIPCORD_USER_PASSWORD', ''),
 
-
 ];

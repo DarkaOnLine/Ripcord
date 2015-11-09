@@ -4,10 +4,8 @@ namespace Ripcord\Providers\Laravel\Console;
 
 use Illuminate\Console\Command;
 
-
 class PublishCommand extends Command
 {
-
     /**
      * The console command name.
      *
@@ -20,7 +18,7 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $description = "Publish config ripcord config";
+    protected $description = 'Publish config ripcord config';
 
     /**
      * Execute the console command.
@@ -29,10 +27,9 @@ class PublishCommand extends Command
      */
     public function fire()
     {
-        $this->info("Publishing config");
-        $this->call('vendor:publish', array(
-            '--provider' => 'Ripcord\Providers\Laravel\ServiceProvider'
-        ));
+        $this->info('Publishing config');
+        $this->call('vendor:publish', [
+            '--provider' => 'Ripcord\Providers\Laravel\ServiceProvider',
+        ]);
     }
-
 }

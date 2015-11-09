@@ -8,6 +8,8 @@ namespace Ripcord\Documentator\Contracts;
 interface Documentator
 {
     public function setMethodData($methods);
+
     public function handle($rpcServer);
+
     public function getIntrospectionXML();
 }

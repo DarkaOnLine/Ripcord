@@ -12,7 +12,6 @@ use Ripcord\Exceptions\InvalidArgumentException;
 
 class Ripcord
 {
-
     /**
      * Method {method} not found. - Thrown by the ripcord server when a requested method isn't found.
      */
@@ -30,7 +29,7 @@ class Ripcord
     /**
      * Could not access {url} - Thrown by the transport object when unable to access the given url.
      */
-    const CANNOT_ACCESS_URL    = -4;
+    const CANNOT_ACCESS_URL = -4;
     /**
      * PHP XMLRPC library is not installed
      * - Thrown by the ripcord server and client when the xmlrpc library is not installed.
@@ -162,7 +161,7 @@ class Ripcord
         if (xmlrpc_get_type($datetime) == 'datetime') {
             return $datetime->timestamp;
         } else {
-            throw new InvalidArgumentException('Variable is not of type datetime', Ripcord::NOT_DATE_TIME);
+            throw new InvalidArgumentException('Variable is not of type datetime', self::NOT_DATE_TIME);
         }
     }
 
@@ -190,7 +189,7 @@ class Ripcord
         if (xmlrpc_get_type($base64) == 'base64') {
             return $base64->scalar;
         } else {
-            throw new InvalidArgumentException('Variable is not of type base64', Ripcord::NOT_BASE64);
+            throw new InvalidArgumentException('Variable is not of type base64', self::NOT_BASE64);
         }
     }
 
@@ -271,6 +270,7 @@ class Ripcord
      * will always result in $result eventually containing the return value of $client->someMethod().
      * Whether multiCall mode has been enabled or not.
      */
+
     public function bind(&$bound, $call)
     {
         if (is_a($call, 'Call')) {

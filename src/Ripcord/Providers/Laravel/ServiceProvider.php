@@ -15,7 +15,6 @@ class ServiceProvider extends BaseServiceProvider
     protected $defer = true;
 
     /**
-     *
      * @var string
      */
     protected $service_name = 'ripcord';
@@ -27,10 +26,9 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-
-        $configPath = __DIR__ . '/config/'.$this->service_name.'.php';
+        $configPath = __DIR__.'/config/'.$this->service_name.'.php';
         $this->publishes([
-            $configPath => config_path($this->service_name.'.php')
+            $configPath => config_path($this->service_name.'.php'),
         ], 'config');
     }
 
@@ -60,7 +58,7 @@ class ServiceProvider extends BaseServiceProvider
     public function provides()
     {
         return [
-            'command.ripcord.publish'
+            'command.ripcord.publish',
         ];
     }
 }

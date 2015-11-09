@@ -36,6 +36,7 @@ class MultiCall extends Client
      * This method puts the client into multiCall mode. While in this mode all
      * method calls are collected as deferred calls (Ripcord_Client_Call).
      */
+
     public function start()
     {
         $this->client->_multiCall = true;
@@ -45,6 +46,7 @@ class MultiCall extends Client
      * This method finally calls the clients multiCall method with all deferred
      * method calls since multiCall mode was enabled.
      */
+
     public function execute()
     {
         if ($this->methodName == 'system.multiCall') {
