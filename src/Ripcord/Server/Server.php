@@ -216,7 +216,7 @@ class Server
         }
         $method = null;
         ob_start(); // xmlrpc_decode echo expat errors if the xml is not valid, can't stop it.
-        $params = xmlrpc_decode_request($request_xml, $method);
+        $params = xmlrpc_decode_request($request_xml, $method, 'utf-8');
         ob_end_clean(); // clean up any xml errors
         return ['methodName' => $method, 'params' => $params];
     }
@@ -314,7 +314,7 @@ class Server
                 $req = xmlrpc_encode_request($method, $args, $this->outputOptions);
                 $result = xmlrpc_server_call_method($this->xmlrpc, $req, null, $this->outputOptions);
 
-                return xmlrpc_decode($result);
+                return xmlrpc_decode($result, 'utf-8');
             } else {
                 throw new BadMethodCallException(
                     'Method '.$method.' not found.',
