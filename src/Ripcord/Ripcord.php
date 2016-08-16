@@ -278,7 +278,5 @@ class Ripcord
         } else {
             $bound = $call;
         }
-
-        return;
     }
 }
