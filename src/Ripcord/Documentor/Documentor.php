@@ -223,7 +223,7 @@ class Documentor implements DocumentorContract
             case 'simple':
                 echo 'This server implements the <a href="http://sites.google.com/a/simplerpc.org/simplerpc/Home/simplerpc-specification-v09">SimpleRPC 1.0 specification</a>';
                 break;
-            case 'auto';
+            case 'auto':
                 echo 'This server implements the <a href="http://www.w3.org/TR/2000/NOTE-SOAP-20000508/">SOAP 1.1</a>, <a href="http://www.xmlrpc.com/spec">XML-RPC</a> and <a href="http://sites.google.com/a/simplerpc.org/simplerpc/Home/simplerpc-specification-v09">SimpleRPC 1.0</a> specification.';
                 $showWSDL = true;
                 break;
@@ -249,9 +249,9 @@ class Documentor implements DocumentorContract
         $allFunctions = [];
         foreach ($methods['methodList'] as $index => $method) {
             if (strpos($method, '.') !== false) {
-                $allMethods[ $method['name'] ] = $index;
+                $allMethods[$method['name']] = $index;
             } else {
-                $allFunctions[ $method['name'] ] = $index;
+                $allFunctions[$method['name']] = $index;
             }
         }
         ksort($allMethods);
