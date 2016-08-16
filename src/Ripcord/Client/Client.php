@@ -184,7 +184,7 @@ class Client
         }
         $request = xmlrpc_encode_request($name, $args, $this->_outputOptions);
         $response = $this->_transport->post($this->_url, $request);
-        $result = xmlrpc_decode($response);
+        $result = xmlrpc_decode($response, 'utf-8');
         $this->_rootClient->_request = $request;
         $this->_rootClient->_response = $response;
         if (Ripcord::isFault($result) && $this->_throwExceptions) {
