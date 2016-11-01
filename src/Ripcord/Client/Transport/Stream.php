@@ -45,7 +45,7 @@ class Stream implements Transport
      */
     public function post($url, $request)
     {
-        $options = array_merge(
+        $options = array_merge_recursive(
             $this->options,
             [
                 'http' => [
