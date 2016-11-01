@@ -2,9 +2,9 @@
 
 namespace Ripcord\Client\Transport;
 
-use Ripcord\Ripcord;
 use Ripcord\Client\Contracts\Transport;
 use Ripcord\Exceptions\TransportException;
+use Ripcord\Ripcord;
 
 /**
  * This class implements the Transport interface using CURL.
@@ -28,6 +28,7 @@ class Curl implements Transport
 
     /**
      * This is the constructor for the Ripcord_Transport_CURL class.
+     *
      * @param array $curlOptions A list of CURL options.
      */
     public function __construct($curlOptions = null)
@@ -43,9 +44,12 @@ class Curl implements Transport
 
     /**
      * This method posts the request to the given url.
-     * @param string $url The url to post to.
+     *
+     * @param string $url     The url to post to.
      * @param string $request The request to post.
+     *
      * @throws TransportException (ripcord::cannotAccessURL) when the given URL cannot be accessed for any reason.
+     *
      * @return string The server response
      */
     public function post($url, $request)
@@ -69,7 +73,7 @@ class Curl implements Transport
             $errorMessage = curl_error($curl);
             curl_close($curl);
             $version = explode('.', phpversion());
-            if (! $this->_skipPreviousException) { // previousException supported in php >= 5.3
+            if (!$this->_skipPreviousException) { // previousException supported in php >= 5.3
                 $exception = new TransportException(
                     'Could not access '.$url,
                     Ripcord::CANNOT_ACCESS_URL,

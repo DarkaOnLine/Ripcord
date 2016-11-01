@@ -33,8 +33,9 @@ class Call
 
     /**
      * The constructor for the Ripcord_Client_Call class.
+     *
      * @param string $method The name of the rpc method to call
-     * @param array $params The parameters for the rpc method.
+     * @param array  $params The parameters for the rpc method.
      */
     public function __construct($method, $params)
     {
@@ -46,7 +47,9 @@ class Call
      * This method allows you to bind a php variable to the result of this method call.
      * When the method call's result is available, the php variable will be filled with
      * this result.
+     *
      * @param mixed $bound The variable to bind the result from this call to.
+     *
      * @return object Returns this object for chaining.
      */
     public function bind(&$bound)
@@ -58,13 +61,14 @@ class Call
 
     /**
      * This method returns the correct format for a multiCall argument.
+     *
      * @return array An array with the methodName and params
      */
     public function encode()
     {
         return [
             'methodName' => $this->method,
-            'params' => (array) $this->params,
+            'params'     => (array) $this->params,
         ];
     }
 }

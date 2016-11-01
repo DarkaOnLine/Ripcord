@@ -14,7 +14,9 @@ class PhpDoc implements Parser
 
     /**
      * This method parses a given docComment block and returns an array with information.
+     *
      * @param string $commentBlock The docComment block.
+     *
      * @return array The parsed information.
      */
     public function parse($commentBlock)
@@ -32,8 +34,10 @@ class PhpDoc implements Parser
 
     /**
      * This method parses a single line from the comment block.
+     *
      * @param $line
      * @param $info
+     *
      * @return
      */
     private function parseLine($line, $info)
@@ -59,7 +63,7 @@ class PhpDoc implements Parser
                     break;
             }
         }
-        if (! $handled) {
+        if (!$handled) {
             switch ($this->currentTag) {
                 case 'param':
                 case 'return':
@@ -76,7 +80,9 @@ class PhpDoc implements Parser
 
     /**
      * This method parses only the text description part of a line of the comment block.
+     *
      * @param $line
+     *
      * @return mixed
      */
     private function parseDescription($line)

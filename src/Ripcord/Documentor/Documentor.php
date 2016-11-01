@@ -171,8 +171,9 @@ class Documentor implements DocumentorContract
 
     /**
      * The constructor for the Ripcord_Documentor class.
-     * @param array $options . Optional. Allows you to set the public properties of this class upon construction.
-     * @param null $docCommentParser
+     *
+     * @param array $options          . Optional. Allows you to set the public properties of this class upon construction.
+     * @param null  $docCommentParser
      */
     public function __construct($options = null, $docCommentParser = null)
     {
@@ -187,6 +188,7 @@ class Documentor implements DocumentorContract
 
     /**
      * This method fills the list of method data with all the user supplied methods of the rpc server.
+     *
      * @param array $methodData A list of methods with name and callback information.
      */
     public function setMethodData($methodData)
@@ -196,6 +198,7 @@ class Documentor implements DocumentorContract
 
     /**
      * This method handles any request which isn't a valid rpc request.
+     *
      * @param object $rpcServer A reference to the active rpc server.
      */
     public function handle($rpcServer)
@@ -350,6 +353,7 @@ class Documentor implements DocumentorContract
      * xmlrpc_server_register_introspection_callback. It uses the php Reflection
      * classes to gather information from the registered methods.
      * Descriptions are added from phpdoc doc blocks if found.
+     *
      * @return string XML string with the introspection data.
      */
     public function getIntrospectionXML()
@@ -413,7 +417,7 @@ class Documentor implements DocumentorContract
                     }
                     $xml .= '</signature></signatures>';
                 }
-                $xml .=  '</methodDescription>';
+                $xml .= '</methodDescription>';
             }
         }
         $xml .= '</methodList></introspection>';

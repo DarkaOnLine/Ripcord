@@ -23,6 +23,7 @@ class MultiCall extends Client
      * This method creates a new multiCall fetch api object.
      *
      * MultiCall constructor.
+     *
      * @param string $client
      * @param string $methodName
      */

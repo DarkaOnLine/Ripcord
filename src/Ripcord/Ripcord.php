@@ -4,11 +4,11 @@ namespace Ripcord;
 
 use Ripcord\Client\Call;
 use Ripcord\Client\Client;
-use Ripcord\Server\Server;
-use Ripcord\Parsers\PhpDoc;
-use Ripcord\Documentator\Documentor;
 use Ripcord\Client\Transport\Stream;
+use Ripcord\Documentator\Documentor;
 use Ripcord\Exceptions\InvalidArgumentException;
+use Ripcord\Parsers\PhpDoc;
+use Ripcord\Server\Server;
 
 class Ripcord
 {
@@ -50,7 +50,9 @@ class Ripcord
 
     /**
      *  This method checks whether the given argument is an XML-RPC fault.
+     *
      * @param mixed $fault
+     *
      * @return bool
      */
     public static function isFault($fault)
@@ -64,8 +66,10 @@ class Ripcord
 
     /**
      *  This method generates an XML-RPC fault with the given code and message.
-     * @param int $code
+     *
+     * @param int    $code
      * @param string $message
+     *
      * @return array
      */
     public static function fault($code, $message)
@@ -77,16 +81,19 @@ class Ripcord
      * This method returns a new Ripcord server, which by default implements XML-RPC, Simple RPC and SOAP 1.1.
      * The server will publish any methods passed through the $services argument. It can be configured through
      * the $options argument.
-     * @param mixed $services Optional. Either an object or an array of objects. If the array has non-numeric keys,
-     * the key will be used as a namespace for the methods in the object.
-     * @param array $options Optional. An array of options to set for the Ripcord server.
-     * @param null $documentor
+     *
+     * @param mixed $services   Optional. Either an object or an array of objects. If the array has non-numeric keys,
+     *                          the key will be used as a namespace for the methods in the object.
+     * @param array $options    Optional. An array of options to set for the Ripcord server.
+     * @param null  $documentor
+     *
      * @return Server
+     *
      * @see Ripcord_Server
      */
     public static function server($services = null, $options = null, $documentor = null)
     {
-        if (! isset($documentor)) {
+        if (!isset($documentor)) {
             $doc = ['name', 'css', 'wsdl', 'wsdl2'];
             $docOptions = [];
             foreach ($doc as $key) {
@@ -105,15 +112,18 @@ class Ripcord
     /**
      * This method returns a new Ripcord client. By default this will be an XML-RPC client, but you can change this
      * through the $options argument.
-     * @param string $url The url of the RPC server to connect with
-     * @param array $options Optional. An array of options to set for the Ripcord client.
-     * @param null $transport
+     *
+     * @param string $url       The url of the RPC server to connect with
+     * @param array  $options   Optional. An array of options to set for the Ripcord client.
+     * @param null   $transport
+     *
      * @return Client
+     *
      * @see Client
      */
     public static function client($url, $options = null, $transport = null)
     {
-        if (! isset($transport)) {
+        if (!isset($transport)) {
             $transport = new Stream();
         }
 
@@ -122,14 +132,16 @@ class Ripcord
 
     /**
      * This method returns a new Ripcord documentor object.
-     * @param array $options Optional. An array of options to set for the Ripcord documentor.
+     *
+     * @param array  $options          Optional. An array of options to set for the Ripcord documentor.
      * @param object $docCommentParser Optional. An object that parses a docComment block. Must
-     * implement the Ripcord_Documentor_CommentParser interface.
+     *                                 implement the Ripcord_Documentor_CommentParser interface.
+     *
      * @return Documentor
      */
     public static function documentor($options = null, $docCommentParser = null)
     {
-        if (! $docCommentParser) {
+        if (!$docCommentParser) {
             $docCommentParser = new PhpDoc();
         }
 
@@ -138,7 +150,9 @@ class Ripcord
 
     /**
      * This method returns an XML-RPC datetime object from a given unix timestamp.
+     *
      * @param int $timestamp
+     *
      * @return object
      */
     public static function datetime($timestamp)
@@ -153,7 +167,9 @@ class Ripcord
      * This method returns a unix timestamp from a given XML-RPC datetime object.
      * It will throw a 'Variable is not of type datetime' Ripcord_Exception (code -6)
      * if the given argument is not of the correct type.
+     *
      * @param object $datetime
+     *
      * @return int
      */
     public static function timestamp($datetime)
@@ -167,7 +183,9 @@ class Ripcord
 
     /**
      * This method returns an XML-RPC base64 object from a given binary string.
+     *
      * @param string $binary
+     *
      * @return object
      */
     public static function base64($binary)
@@ -181,7 +199,9 @@ class Ripcord
      * This method returns a (binary) string from a given XML-RPC base64 object.
      * It will throw a 'Variable is not of type base64' Ripcord_Exception (code -7)
      * if the given argument is not of the correct type.
+     *
      * @param object $base64
+     *
      * @return string
      */
     public static function binary($base64)
@@ -196,7 +216,9 @@ class Ripcord
     /**
      * This method returns the type of the given parameter. This can be any of the XML-RPC data types, e.g.
      * 'struct', 'int', 'string', 'base64', 'boolean', 'double', 'array' or 'datetime'.
+     *
      * @param mixed $param
+     *
      * @return string
      */
     public static function getType($param)
@@ -206,9 +228,11 @@ class Ripcord
 
     /**
      * This method returns a new Ripcord client, configured to access a SOAP 1.1 server.
+     *
      * @param string $url
-     * @param array $options Optional.
-     * @param null $transport
+     * @param array  $options   Optional.
+     * @param null   $transport
+     *
      * @return Client
      */
     public static function soapClient($url, $options = null, $transport = null)
@@ -220,9 +244,11 @@ class Ripcord
 
     /**
      * This method returns a new Ripcord client, configured to access an XML-RPC server.
+     *
      * @param string $url
-     * @param array $options Optional.
-     * @param null $transport
+     * @param array  $options   Optional.
+     * @param null   $transport
+     *
      * @return Client
      */
     public static function xmlrpcClient($url, $options = null, $transport = null)
@@ -234,9 +260,11 @@ class Ripcord
 
     /**
      * This method returns a new Ripcord client, configured to access a Simple RPC server.
+     *
      * @param string $url
-     * @param array $options Optional.
-     * @param null $transport
+     * @param array  $options   Optional.
+     * @param null   $transport
+     *
      * @return Client
      */
     public static function simpleClient($url, $options = null, $transport = null)
@@ -249,7 +277,9 @@ class Ripcord
     /**
      * This method creates a new Ripcord_Client_Call object, which encodes the information needed for
      * a method call to an rpc server. This is mostly used for the system.multiCall method.
+     *
      * @return object
+     *
      * @internal param string $method The name of the method call to encode
      * @internal param mixed $args The remainder of the arguments are encoded as parameters to the call
      */
