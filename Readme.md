@@ -1,6 +1,6 @@
 [![Total Downloads](https://poser.pugx.org/DarkaOnLine/Ripcord/downloads.svg)](https://packagist.org/packages/DarkaOnLine/Ripcord)
 
-Ripcord
+Ripcord - XML RPC client and server for PHP
 ==========
 
 This packages is a copy of [https://code.google.com/p/ripcord/](https://code.google.com/p/ripcord/).
