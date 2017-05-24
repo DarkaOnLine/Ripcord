@@ -39,11 +39,9 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->app['command.ripcord.publish'] = $this->app->share(
-            function () {
-                return new PublishCommand();
-            }
-        );
+        $this->app->singleton('command.ripcord.publish', function () {
+            return new PublishCommand();
+        });
 
         $this->commands(
             'command.ripcord.publish'
