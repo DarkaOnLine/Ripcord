@@ -36,3 +36,8 @@ Just extend `Ripcord` class and all your coinfg and basic connection will be don
     ...
   }
 ```
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/DarkaOnLine/Ripcord/badge.svg?style=beer-square)](https://beerpay.io/DarkaOnLine/Ripcord)  [![Beerpay](https://beerpay.io/DarkaOnLine/Ripcord/make-wish.svg?style=flat-square)](https://beerpay.io/DarkaOnLine/Ripcord?focus=wish)
