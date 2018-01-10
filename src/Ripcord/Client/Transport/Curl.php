@@ -38,7 +38,7 @@ class Curl implements Transport
         }
         $version = explode('.', phpversion());
         if (((0 + $version[0]) == 5) && (0 + $version[1]) < 3) { // previousException supported in php >= 5.3
-            $this->_skipPreviousException = true;
+            $this->skipPreviousException = true;
         }
     }
 
@@ -73,7 +73,7 @@ class Curl implements Transport
             $errorMessage = curl_error($curl);
             curl_close($curl);
             $version = explode('.', phpversion());
-            if (!$this->_skipPreviousException) { // previousException supported in php >= 5.3
+            if (!$this->skipPreviousException) { // previousException supported in php >= 5.3
                 $exception = new TransportException(
                     'Could not access '.$url,
                     Ripcord::CANNOT_ACCESS_URL,
