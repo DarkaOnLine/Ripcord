@@ -246,6 +246,7 @@ class Server
             foreach ($params as $param) {
                 $method = $param['methodName'];
                 $args = $param['params'];
+
                 try {
                     // XML-RPC specification says that non-fault results must be in a single item array
                     $result[] = [$this->call($method, $args)];

@@ -85,6 +85,7 @@ class Curl implements Transport
                     Ripcord::CANNOT_ACCESS_URL
                 );
             }
+
             throw $exception;
         }
         curl_close($curl);
