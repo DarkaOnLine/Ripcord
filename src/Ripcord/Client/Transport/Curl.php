@@ -12,6 +12,11 @@ use Ripcord\Ripcord;
 class Curl implements Transport
 {
     /**
+     * The curl handle
+     */
+    private $curl;
+    
+    /**
      * A list of CURL options.
      */
     private $options = [];
@@ -54,7 +59,10 @@ class Curl implements Transport
      */
     public function post($url, $request)
     {
-        $curl = curl_init();
+        if (!$this->curl) {
+            $this->curl = curl_init();
+        }
+        curl_reset($this->curl);
         $options = (array) $this->options + [
                 CURLOPT_RETURNTRANSFER => 1,
                 CURLOPT_URL            => $url,
@@ -62,16 +70,15 @@ class Curl implements Transport
                 CURLOPT_POSTFIELDS     => $request,
                 CURLOPT_HEADER         => true,
             ];
-        curl_setopt_array($curl, $options);
-        $contents = curl_exec($curl);
-        $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+        curl_setopt_array($this->curl, $options);
+        $contents = curl_exec($this->curl);
+        $headerSize = curl_getinfo($this->curl, CURLINFO_HEADER_SIZE);
         $this->responseHeaders = substr($contents, 0, $headerSize);
         $contents = substr($contents, $headerSize);
 
-        if (curl_errno($curl)) {
-            $errorNumber = curl_errno($curl);
-            $errorMessage = curl_error($curl);
-            curl_close($curl);
+        if (curl_errno($this->curl)) {
+            $errorNumber = curl_errno($this->curl);
+            $errorMessage = curl_error($this->curl);
             $version = explode('.', phpversion());
             if (!$this->skipPreviousException) { // previousException supported in php >= 5.3
                 $exception = new TransportException(
@@ -88,8 +95,13 @@ class Curl implements Transport
 
             throw $exception;
         }
-        curl_close($curl);
 
         return $contents;
+    }
+    
+    public function __destruct() {
+        if ($this->curl) {
+            curl_close($this->curl);
+        }
     }
 }
