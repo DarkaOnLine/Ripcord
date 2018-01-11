@@ -12,10 +12,10 @@ use Ripcord\Ripcord;
 class Curl implements Transport
 {
     /**
-     * The curl handle
+     * The curl handle.
      */
     private $curl;
-    
+
     /**
      * A list of CURL options.
      */
@@ -98,8 +98,9 @@ class Curl implements Transport
 
         return $contents;
     }
-    
-    public function __destruct() {
+
+    public function __destruct()
+    {
         if ($this->curl) {
             curl_close($this->curl);
         }
