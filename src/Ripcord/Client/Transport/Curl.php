@@ -91,4 +91,16 @@ class Curl implements Transport
 
         return $contents;
     }
+    
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    public function setOptions($curlOptions = null)
+    {
+        if (isset($curlOptions)) {
+            $this->options = $curlOptions;
+        }
+    }
 }
