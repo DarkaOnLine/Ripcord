@@ -140,7 +140,7 @@ class Server
      * Allows you to add a single method to the server after construction.
      *
      * @param string   $name   The name of the method as exposed through the rpc server
-     * @param callback $method The name of the method to call, or an array with classname or object and method name.
+     * @param callable $method The name of the method to call, or an array with classname or object and method name.
      */
     public function addMethod($name, $method)
     {

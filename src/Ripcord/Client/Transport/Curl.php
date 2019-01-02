@@ -98,7 +98,7 @@ class Curl implements Transport
 
         return $contents;
     }
-    
+
     public function getOptions()
     {
         return $this->options;
