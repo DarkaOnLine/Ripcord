@@ -256,4 +256,18 @@ class Client
 
         return $result;
     }
+
+    public function getTransportOptions()
+    {
+        if (isset($this->_transport)) {
+            return $this->_transport->getOptions();
+        }
+    }
+
+    public function setTransportOptions(array $options = [])
+    {
+        if (isset($this->_transport)) {
+            $this->_transport->setOptions($options);
+        }
+    }
 }
