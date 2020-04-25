@@ -64,12 +64,12 @@ class Curl implements Transport
         }
         curl_reset($this->curl);
         $options = (array) $this->options + [
-                CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL            => $url,
-                CURLOPT_POST           => true,
-                CURLOPT_POSTFIELDS     => $request,
-                CURLOPT_HEADER         => true,
-            ];
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL            => $url,
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $request,
+            CURLOPT_HEADER         => true,
+        ];
         curl_setopt_array($this->curl, $options);
         $contents = curl_exec($this->curl);
         $headerSize = curl_getinfo($this->curl, CURLINFO_HEADER_SIZE);
