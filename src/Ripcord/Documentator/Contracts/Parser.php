@@ -4,7 +4,7 @@ namespace Ripcord\Documentator\Contracts;
 
 /**
  * This interface describes the minimum interface needed for a comment parser object used by the
- * Ripcord_Documentor.
+ * Ripcord_Documentator.
  */
 interface Parser
 {

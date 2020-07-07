@@ -5,7 +5,7 @@ namespace Ripcord;
 use Ripcord\Client\Call;
 use Ripcord\Client\Client;
 use Ripcord\Client\Transport\Stream;
-use Ripcord\Documentator\Documentor;
+use Ripcord\Documentator\Documentator;
 use Ripcord\Exceptions\InvalidArgumentException;
 use Ripcord\Parsers\PhpDoc;
 use Ripcord\Server\Server;
@@ -135,9 +135,9 @@ class Ripcord
      *
      * @param array  $options          Optional. An array of options to set for the Ripcord documentor.
      * @param object $docCommentParser Optional. An object that parses a docComment block. Must
-     *                                 implement the Ripcord_Documentor_CommentParser interface.
+     *                                 implement the Ripcord_Documentator_CommentParser interface.
      *
-     * @return Documentor
+     * @return Documentator
      */
     public static function documentor($options = null, $docCommentParser = null)
     {
@@ -145,7 +145,7 @@ class Ripcord
             $docCommentParser = new PhpDoc();
         }
 
-        return new Documentor($options, $docCommentParser);
+        return new Documentator($options, $docCommentParser);
     }
 
     /**

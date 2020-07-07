@@ -6,13 +6,14 @@ use Ripcord\Exceptions\BadMethodCallException;
 use Ripcord\Exceptions\ConfigurationException;
 use Ripcord\Exceptions\InvalidArgumentException;
 use Ripcord\Ripcord;
+use RuntimeException;
 
 class Server
 {
     /**
      * Contains a reference to the Ripcord documentor object.
      *
-     * @see Ripcord_Documentor
+     * @see \Ripcord\Documentator
      */
     private $documentor = null;
 

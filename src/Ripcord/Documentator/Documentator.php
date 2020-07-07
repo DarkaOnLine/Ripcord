@@ -2,13 +2,13 @@
 
 namespace Ripcord\Documentator;
 
-use Ripcord\Documentator\Contracts\Documentator as DocumentorContract;
+use Ripcord\Documentator\Contracts\Documentator as DocumentatorContract;
 
 /**
  * This class implements the default documentor for the ripcord server. Any request to the server
  * without a request_xml is handled by the documentor.
  */
-class Documentor implements DocumentorContract
+class Documentator implements DocumentatorContract
 {
     /**
      * The object to parse the docComments.
@@ -170,7 +170,7 @@ class Documentor implements DocumentorContract
     private $methods = null;
 
     /**
-     * The constructor for the Ripcord_Documentor class.
+     * The constructor for the Ripcord_Documentator class.
      *
      * @param array $options          . Optional. Allows you to set the public properties of this class upon construction.
      * @param null  $docCommentParser
