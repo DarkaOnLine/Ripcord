@@ -6,7 +6,6 @@ use Ripcord\Exceptions\BadMethodCallException;
 use Ripcord\Exceptions\ConfigurationException;
 use Ripcord\Exceptions\InvalidArgumentException;
 use Ripcord\Ripcord;
-use RuntimeException;
 
 class Server
 {
