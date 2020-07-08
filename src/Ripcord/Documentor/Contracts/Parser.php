@@ -1,10 +1,10 @@
 <?php
 
-namespace Ripcord\Documentator\Contracts;
+namespace Ripcord\Documentor\Contracts;
 
 /**
  * This interface describes the minimum interface needed for a comment parser object used by the
- * Ripcord_Documentator.
+ * Ripcord_Documentor.
  */
 interface Parser
 {

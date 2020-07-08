@@ -12,7 +12,7 @@ class Server
     /**
      * Contains a reference to the Ripcord documentor object.
      *
-     * @see \Ripcord\Documentator
+     * @see \Ripcord\Documentor
      */
     private $documentor = null;
 

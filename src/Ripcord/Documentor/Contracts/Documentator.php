@@ -1,11 +1,11 @@
 <?php
 
-namespace Ripcord\Documentator\Contracts;
+namespace Ripcord\Documentor\Contracts;
 
 /**
  * This interface defines the minimum methods any documentor needs to implement.
  */
-interface Documentator
+interface Documentor
 {
     public function setMethodData($methods);
 
