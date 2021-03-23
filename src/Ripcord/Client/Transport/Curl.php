@@ -69,7 +69,7 @@ class Curl implements Transport
             CURLOPT_POST           => true,
             CURLOPT_POSTFIELDS     => $request,
             CURLOPT_HEADER         => true,
-            CURLOPT_HTTPHEADER => ['Content-Type: text/xml'],
+            CURLOPT_HTTPHEADER     => ['Content-Type: text/xml'],
         ];
         curl_setopt_array($this->curl, $options);
         $contents = curl_exec($this->curl);
