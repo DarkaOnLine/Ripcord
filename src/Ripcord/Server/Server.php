@@ -227,6 +227,7 @@ class Server
         ob_start(); // xmlrpc_decode echo expat errors if the xml is not valid, can't stop it.
         $params = xmlrpc_decode_request($request_xml, $method, 'utf-8');
         ob_end_clean(); // clean up any xml errors
+
         return ['methodName' => $method, 'params' => $params];
     }
 
