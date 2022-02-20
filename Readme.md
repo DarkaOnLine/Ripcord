@@ -13,6 +13,10 @@ Installation
     composer require darkaonline/ripcord
 ```
 
+Requirements
+============
+Requires the PHP extension [XML-RPC](https://www.php.net/manual/en/book.xmlrpc.php).
+
 For Laravel 5 Users
 ============
 
