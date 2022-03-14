@@ -5,7 +5,7 @@ namespace Ripcord;
 use Ripcord\Client\Call;
 use Ripcord\Client\Client;
 use Ripcord\Client\Transport\Stream;
-use Ripcord\Documentator\Documentor;
+use Ripcord\Documentor\Documentor;
 use Ripcord\Exceptions\InvalidArgumentException;
 use Ripcord\Parsers\PhpDoc;
 use Ripcord\Server\Server;

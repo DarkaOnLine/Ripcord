@@ -1,8 +1,8 @@
 <?php
 
-namespace Ripcord\Parsers;
+namespace Ripcord\Documentor\Parsers;
 
-use Ripcord\Documentator\Contracts\Parser;
+use Ripcord\Documentor\Contracts\Parser;
 
 /**
  * This class implements the Ripcord_Documentor_Parser interface, parsing the docComment

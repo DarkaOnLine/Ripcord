@@ -1,8 +1,8 @@
 <?php
 
-namespace Ripcord\Documentator;
+namespace Ripcord\Documentor;
 
-use Ripcord\Documentator\Contracts\Documentator as DocumentorContract;
+use Ripcord\Documentor\Contracts\Documentor as DocumentorContract;
 
 /**
  * This class implements the default documentor for the ripcord server. Any request to the server
