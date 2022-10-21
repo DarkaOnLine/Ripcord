@@ -1,6 +1,6 @@
 <?php
 
-namespace Ripcord\Parsers;
+namespace Ripcord\Documentator\Parsers;
 
 use Ripcord\Documentator\Contracts\Parser;
 
