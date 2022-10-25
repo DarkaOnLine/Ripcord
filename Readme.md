@@ -1,4 +1,5 @@
 [![Total Downloads](https://poser.pugx.org/DarkaOnLine/Ripcord/downloads.svg)](https://packagist.org/packages/DarkaOnLine/Ripcord)
+[![GuitHub Sponsor](https://img.shields.io/static/v1?label=Sponsor%20Ripcord&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/DarkaOnLine)
 
 Ripcord - XML RPC client and server for PHP
 ==========
@@ -41,7 +42,6 @@ Just extend `Ripcord` class and all your coinfg and basic connection will be don
   }
 ```
 
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
 
-[![Beerpay](https://beerpay.io/DarkaOnLine/Ripcord/badge.svg?style=beer-square)](https://beerpay.io/DarkaOnLine/Ripcord)  [![Beerpay](https://beerpay.io/DarkaOnLine/Ripcord/make-wish.svg?style=flat-square)](https://beerpay.io/DarkaOnLine/Ripcord?focus=wish)
+## Support
+[![GuitHub Sponsor](https://img.shields.io/static/v1?label=Sponsor%20Ripcord&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/DarkaOnLine)
