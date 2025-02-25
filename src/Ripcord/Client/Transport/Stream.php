@@ -58,7 +58,14 @@ class Stream implements Transport
         $context = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
         //$this->responseHeaders = $http_response_header;
-        if (!$result) {
+        if ($result === false) {
+            $error = error_get_last();
+            if ($error && strpos($error['message'], 'timed out') !== false) {
+                throw new TransportException(
+                    'Connection timed out after ' . $options['http']['timeout'] . ' second(s)',
+                    Ripcord::CONNECTION_TIMEOUT
+                );
+            }
             throw new TransportException(
                 'Could not access '.$url,
                 Ripcord::CANNOT_ACCESS_URL

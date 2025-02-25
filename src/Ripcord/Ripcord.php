@@ -47,6 +47,10 @@ class Ripcord
      * Variable is not a class name or an object - Thrown by the ripcord server.
      */
     const UNKNOWN_SERVICE_TYPE = -8;
+    /**
+     * Connection Timeout - Thrown by the ripcord Stream.
+     */
+    const CONNECTION_TIMEOUT = 408; // HTTP 408 Request Timeout
 
     /**
      *  This method checks whether the given argument is an XML-RPC fault.
@@ -124,7 +128,7 @@ class Ripcord
     public static function client($url, $options = null, $transport = null)
     {
         if (!isset($transport)) {
-            $transport = new Stream();
+            $transport = new Stream($options);
         }
 
         return new Client($url, $options, $transport);
