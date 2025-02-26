@@ -63,7 +63,7 @@ class Stream implements Transport
             if (isset($error['message']) && strpos($error['message'], 'timed out') !== false) {
                 throw new TransportException(
                     sprintf(
-                        'Connection timed out after %s second(s)', 
+                        'Connection timed out after %s second(s)',
                         $options['http']['timeout'] ?: 'x'
                     ),
                     Ripcord::CONNECTION_TIMEOUT
