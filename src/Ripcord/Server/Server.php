@@ -307,7 +307,7 @@ class Server
      * @param string $method The rpc name of the method
      * @param array  $args   The arguments to this method
      *
-     * @throws InvalidArgumentException (ripcord::cannotRecurse) when passed a recursive multiCall
+     * @throws InvalidArgumentException (ripcord::cannotRecurse)  when passed a recursive multiCall
      * @throws BadMethodCallException   (ripcord::methodNotFound) when the requested method isn't available.
      *
      * @return mixed
