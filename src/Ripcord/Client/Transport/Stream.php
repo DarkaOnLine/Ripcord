@@ -60,9 +60,12 @@ class Stream implements Transport
         //$this->responseHeaders = $http_response_header;
         if ($result === false) {
             $error = error_get_last();
-            if ($error && strpos($error['message'], 'timed out') !== false) {
+            if (isset($error['message']) && strpos($error['message'], 'timed out') !== false) {
                 throw new TransportException(
-                    'Connection timed out after '.$options['http']['timeout'].' second(s)',
+                    sprintf(
+                        'Connection timed out after %s second(s)', 
+                        $options['http']['timeout'] ?: 'x'
+                    ),
                     Ripcord::CONNECTION_TIMEOUT
                 );
             }
